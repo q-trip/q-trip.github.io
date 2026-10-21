@@ -1,0 +1,1024 @@
+// 自動生成ファイル：直接編集しないこと。stations.json を編集して
+//   node tools/build-fallback.mjs
+// を実行すると再生成されます。
+window.YOKATABI_FALLBACK_DATA = {
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Q-TRIP 九州よりみちダイス",
+    "subtitle": "サイコロ片手に巡る、ローカル美食と秘湯の旅",
+    "viewBox": [
+      0,
+      0,
+      560,
+      820
+    ],
+    "startStationId": "hakata",
+    "currencyUnit": "万円",
+    "shareHashtags": [
+      "九州よりみちダイス",
+      "QTRIP",
+      "九州旅"
+    ],
+    "ranks": [
+      {
+        "id": "traveler",
+        "title": "九州旅人",
+        "min": 0,
+        "icon": "🎒",
+        "metal": "bronze",
+        "flavor": "サイコロ片手に、九州の旅が始まった。"
+      },
+      {
+        "id": "pioneer",
+        "title": "九州開拓使",
+        "min": 10000,
+        "icon": "🧭",
+        "metal": "silver",
+        "flavor": "まだ見ぬ駅へ。あなたの足跡が、九州の地図を塗り替えていく。"
+      },
+      {
+        "id": "daimyo",
+        "title": "九州大名",
+        "min": 30000,
+        "icon": "🏯",
+        "metal": "gold",
+        "flavor": "城下に湯けむり、領地に名産。九州じゅうにあなたの名がとどろく。"
+      },
+      {
+        "id": "railking",
+        "title": "九州鉄道王",
+        "min": 55000,
+        "icon": "🚂",
+        "metal": "platinum",
+        "flavor": "九州のレールは、すべてあなたの王国へ通じている。"
+      }
+    ],
+    "trip": {
+      "minAcquired": 2,
+      "day1Start": "09:00",
+      "day1End": "18:00",
+      "morningMinutes": 60,
+      "day2Start": "08:30",
+      "day2End": "17:30",
+      "transferMinutes": 10,
+      "maxStops": 6,
+      "notice": "所要時間は乗り換えを含むおおよその目安です。運行本数・時刻・運休は各社の最新情報をご確認ください。"
+    },
+    "prefectures": {
+      "福岡": {
+        "color": "#e4572e"
+      },
+      "佐賀": {
+        "color": "#17a398"
+      },
+      "長崎": {
+        "color": "#2e86de"
+      },
+      "熊本": {
+        "color": "#9b59b6"
+      },
+      "大分": {
+        "color": "#f39c12"
+      },
+      "宮崎": {
+        "color": "#7cb518"
+      },
+      "鹿児島": {
+        "color": "#d63384"
+      }
+    },
+    "affiliate": {
+      "disclosure": "【PR】このカード内のボタンはアフィリエイト（広告）リンクを含みます。購入・予約によって運営者が紹介料を受け取る場合があります。",
+      "products": [
+        {
+          "id": "amazon",
+          "label": "Amazon",
+          "url": "https://www.amazon.co.jp/s?k={kw}",
+          "params": {
+            "tag": ""
+          },
+          "wrap": "",
+          "className": "btn-amazon"
+        },
+        {
+          "id": "rakuten",
+          "label": "楽天市場",
+          "url": "https://search.rakuten.co.jp/search/mall/{kw}/",
+          "params": {},
+          "wrap": "",
+          "className": "btn-rakuten"
+        },
+        {
+          "id": "yahoo",
+          "label": "Yahoo!ショッピング",
+          "url": "https://shopping.yahoo.co.jp/search?p={kw}",
+          "params": {},
+          "wrap": "",
+          "className": "btn-yahoo"
+        }
+      ],
+      "stays": [
+        {
+          "id": "rakuten_travel",
+          "label": "楽天トラベル",
+          "url": "https://kw.travel.rakuten.co.jp/keyword/Search.do?charset=utf-8&f_query={kw}",
+          "params": {},
+          "wrap": "",
+          "className": "btn-rakuten-travel"
+        },
+        {
+          "id": "jalan",
+          "label": "じゃらん",
+          "url": "https://www.jalan.net/uw/uwp2011/uww2011search.do?keyword={kw}",
+          "params": {},
+          "wrap": "",
+          "className": "btn-jalan"
+        }
+      ]
+    }
+  },
+  "routeTypes": {
+    "shinkansen": {
+      "label": "新幹線"
+    },
+    "trunk": {
+      "label": "特急幹線"
+    },
+    "local": {
+      "label": "ローカル線"
+    },
+    "scenic": {
+      "label": "観光列車"
+    },
+    "ferry": {
+      "label": "航路"
+    },
+    "bus": {
+      "label": "バス連絡"
+    }
+  },
+  "routeOverrides": [
+    {
+      "between": [
+        "hakata",
+        "kagoshima-chuo"
+      ],
+      "type": "shinkansen",
+      "name": "九州新幹線",
+      "minutes": 80,
+      "via": [
+        214,
+        380
+      ]
+    },
+    {
+      "between": [
+        "ureshino-onsen",
+        "nagasaki"
+      ],
+      "type": "shinkansen",
+      "name": "西九州新幹線",
+      "minutes": 25
+    },
+    {
+      "between": [
+        "hakata",
+        "yufuin"
+      ],
+      "type": "scenic",
+      "name": "久大本線（観光特急が走る高原ルート）",
+      "minutes": 130,
+      "via": [
+        300,
+        165
+      ]
+    },
+    {
+      "between": [
+        "aso",
+        "beppu"
+      ],
+      "type": "scenic",
+      "name": "豊肥本線（観光特急が走るカルデラルート）",
+      "minutes": 120,
+      "via": [
+        392,
+        276
+      ]
+    },
+    {
+      "between": [
+        "kagoshima-chuo",
+        "ibusuki"
+      ],
+      "type": "scenic",
+      "name": "指宿枕崎線（観光特急が走る海辺ルート）",
+      "minutes": 55
+    },
+    {
+      "between": [
+        "huis-ten-bosch",
+        "nagasaki"
+      ],
+      "type": "scenic",
+      "name": "大村線（海沿いの観光列車ルート）",
+      "minutes": 80,
+      "via": [
+        70,
+        300
+      ]
+    },
+    {
+      "between": [
+        "hakata",
+        "mojiko"
+      ],
+      "type": "trunk",
+      "name": "鹿児島本線",
+      "minutes": 60
+    },
+    {
+      "between": [
+        "hakata",
+        "karatsu"
+      ],
+      "type": "local",
+      "name": "筑肥線",
+      "minutes": 85
+    },
+    {
+      "between": [
+        "hakata",
+        "aso"
+      ],
+      "type": "local",
+      "name": "鹿児島本線・豊肥本線",
+      "minutes": 120
+    },
+    {
+      "between": [
+        "hakata",
+        "ureshino-onsen"
+      ],
+      "type": "trunk",
+      "name": "長崎本線・佐世保線（リレー特急）",
+      "minutes": 60
+    },
+    {
+      "between": [
+        "karatsu",
+        "huis-ten-bosch"
+      ],
+      "type": "local",
+      "name": "筑肥線・松浦鉄道",
+      "minutes": 140
+    },
+    {
+      "between": [
+        "ureshino-onsen",
+        "huis-ten-bosch"
+      ],
+      "type": "local",
+      "name": "佐世保線・大村線",
+      "minutes": 60
+    },
+    {
+      "between": [
+        "mojiko",
+        "beppu"
+      ],
+      "type": "trunk",
+      "name": "日豊本線",
+      "minutes": 90
+    },
+    {
+      "between": [
+        "beppu",
+        "yufuin"
+      ],
+      "type": "local",
+      "name": "久大本線",
+      "minutes": 50
+    },
+    {
+      "between": [
+        "beppu",
+        "miyazaki"
+      ],
+      "type": "trunk",
+      "name": "日豊本線",
+      "minutes": 200
+    },
+    {
+      "between": [
+        "miyazaki",
+        "kagoshima-chuo"
+      ],
+      "type": "trunk",
+      "name": "日豊本線",
+      "minutes": 130
+    },
+    {
+      "between": [
+        "kagoshima-chuo",
+        "yakushima"
+      ],
+      "type": "ferry",
+      "name": "鹿児島港〜宮之浦港 航路（高速船・フェリー）",
+      "minutes": 130,
+      "via": [
+        305,
+        725
+      ]
+    },
+    {
+      "between": [
+        "ibusuki",
+        "yakushima"
+      ],
+      "type": "ferry",
+      "name": "指宿港〜屋久島 航路（高速船）",
+      "minutes": 100,
+      "via": [
+        236,
+        725
+      ]
+    },
+    {
+      "between": [
+        "aso",
+        "kurokawa-onsen"
+      ],
+      "type": "bus",
+      "name": "路線バス",
+      "minutes": 60
+    },
+    {
+      "between": [
+        "kurokawa-onsen",
+        "yufuin"
+      ],
+      "type": "bus",
+      "name": "路線バス（やまなみハイウェイ）",
+      "minutes": 100
+    },
+    {
+      "between": [
+        "aso",
+        "takachiho"
+      ],
+      "type": "bus",
+      "name": "路線バス",
+      "minutes": 90
+    },
+    {
+      "between": [
+        "takachiho",
+        "miyazaki"
+      ],
+      "type": "bus",
+      "name": "バス＋鉄道連絡（延岡経由）",
+      "minutes": 170
+    }
+  ],
+  "stations": [
+    {
+      "id": "hakata",
+      "name": "博多",
+      "kana": "はかた",
+      "prefecture": "福岡",
+      "x": 203.5,
+      "y": 136,
+      "labelDir": "right",
+      "connections": [
+        "mojiko",
+        "karatsu",
+        "ureshino-onsen",
+        "aso",
+        "yufuin",
+        "kagoshima-chuo"
+      ],
+      "assetValue": 5000,
+      "propertyType": "名産品物件",
+      "tagline": "九州の旅はいつもここから",
+      "memo": "改札を抜けると、豚骨スープの香りと人の波がいっぺんに押し寄せる。駅ビルの屋上広場からは新幹線が滑り込む姿を見下ろせ、日が暮れれば那珂川沿いに屋台の灯りがともり始める。九州の旅はいつもここから“よか”と背中を押してくれる玄関口だ。",
+      "products": [
+        {
+          "name": "博多ラーメン",
+          "desc": "細麺×濃厚豚骨。替え玉前提のお取り寄せセット。",
+          "keyword": "博多ラーメン 豚骨 お取り寄せ"
+        },
+        {
+          "name": "辛子明太子",
+          "desc": "白ごはんの相棒。贈答にも喜ばれる博多の定番。",
+          "keyword": "博多 辛子明太子"
+        }
+      ],
+      "gateway": "福岡空港・博多駅",
+      "plan": {
+        "minutes": 120,
+        "day": "博多ラーメンやうどんの食べ歩きと、櫛田神社まわりの博多の街歩き",
+        "evening": "中洲の屋台で、博多の夜をはしご酒で締めくくる",
+        "morning": "駅ビルの屋上広場で、列車を見送りながら朝のコーヒー"
+      },
+      "stay": {
+        "name": "博多駅前の都市型ホテル",
+        "kind": "都市型ホテル",
+        "desc": "新幹線改札から徒歩圏。屋台はしごの拠点に。",
+        "keyword": "博多駅 ホテル"
+      }
+    },
+    {
+      "id": "mojiko",
+      "name": "門司港",
+      "kana": "もじこう",
+      "prefecture": "福岡",
+      "x": 317.1,
+      "y": 47.7,
+      "labelDir": "right",
+      "connections": [
+        "hakata",
+        "beppu"
+      ],
+      "assetValue": 2500,
+      "propertyType": "名産品物件",
+      "tagline": "大正ロマンと関門海峡の終着駅",
+      "memo": "ネオ・ルネサンス様式の木造駅舎は、重要文化財として大正の面影をそのまま残す。線路の終点から数分歩けば関門海峡。対岸の下関が手の届きそうな近さに見え、潮風に混じって焼きカレーの香ばしい匂いがレトロな路地から漂ってくる。",
+      "products": [
+        {
+          "name": "門司港焼きカレー",
+          "desc": "チーズと卵をのせてオーブンで焼く港町の味。",
+          "keyword": "門司港 焼きカレー"
+        },
+        {
+          "name": "ふぐ加工品",
+          "desc": "関門名物のふぐを、ひれ酒や一夜干しで。",
+          "keyword": "ふぐ 一夜干し 関門"
+        }
+      ],
+      "plan": {
+        "minutes": 120,
+        "day": "門司港レトロの洋館めぐりと関門海峡の散策。ランチは焼きカレー",
+        "evening": "ライトアップされたレトロ地区と、海峡の夜景を散歩",
+        "morning": "海峡沿いの遊歩道で、朝の潮風と行き交う船を眺める"
+      },
+      "stay": {
+        "name": "門司港レトロのクラシックホテル",
+        "kind": "クラシックホテル",
+        "desc": "海峡の夜景と汽笛を、窓辺で独り占め。",
+        "keyword": "門司港 ホテル"
+      }
+    },
+    {
+      "id": "karatsu",
+      "name": "唐津",
+      "kana": "からつ",
+      "prefecture": "佐賀",
+      "x": 108.6,
+      "y": 171.9,
+      "labelDir": "left",
+      "connections": [
+        "hakata",
+        "huis-ten-bosch"
+      ],
+      "assetValue": 3000,
+      "propertyType": "名産品物件",
+      "tagline": "城と松原、そして呼子のイカ",
+      "memo": "秋の唐津くんちで勇壮な曳山が練り歩く城下町。駅から歩けば松林越しに唐津城が姿を現し、虹の松原の緑が海岸線に沿ってどこまでも続く。さらに足を延ばせば呼子の朝市。透き通ったイカの活き造りが、玄界灘の恵みを教えてくれる。",
+      "products": [
+        {
+          "name": "佐賀牛",
+          "desc": "きめ細かな霜降り。すき焼き・焼肉用が人気。",
+          "keyword": "佐賀牛 すき焼き"
+        },
+        {
+          "name": "呼子のイカ",
+          "desc": "いかしゅうまいや一夜干しで呼子の味を自宅に。",
+          "keyword": "呼子 イカ しゅうまい"
+        }
+      ],
+      "plan": {
+        "minutes": 150,
+        "day": "唐津城と虹の松原、足を延ばして呼子でイカの活き造り",
+        "evening": "海辺の宿で、玄界灘の魚介づくしの夕食",
+        "morning": "虹の松原の木陰を朝さんぽ"
+      },
+      "stay": {
+        "name": "玄界灘を望む海辺の料理宿",
+        "kind": "海辺の料理宿",
+        "desc": "朝獲れの魚介が主役。波音を聞きながら眠る。",
+        "keyword": "唐津 料理旅館"
+      }
+    },
+    {
+      "id": "ureshino-onsen",
+      "name": "嬉野温泉",
+      "kana": "うれしのおんせん",
+      "prefecture": "佐賀",
+      "x": 115,
+      "y": 256.3,
+      "labelDir": "right",
+      "connections": [
+        "hakata",
+        "nagasaki",
+        "huis-ten-bosch"
+      ],
+      "assetValue": 3500,
+      "propertyType": "湯けむり物件",
+      "tagline": "茶畑の丘と、とろとろ美肌の湯",
+      "memo": "西九州新幹線の開業とともに生まれた新しい駅。ホームを降りると茶畑の丘がやわらかく広がり、温泉街まではすぐ。とろりとした肌ざわりの湯は日本三大美肌の湯の一つに数えられ、その湯で炊いた豆腐は口の中でほどけるように溶けていく。",
+      "products": [
+        {
+          "name": "嬉野茶",
+          "desc": "勾玉のような丸い茶葉。甘みとコクが深い玉緑茶。",
+          "keyword": "嬉野茶 玉緑茶"
+        },
+        {
+          "name": "温泉湯豆腐",
+          "desc": "温泉水で炊くととろける、名物の湯どうふセット。",
+          "keyword": "嬉野 温泉湯豆腐"
+        }
+      ],
+      "plan": {
+        "minutes": 120,
+        "day": "茶畑の丘と温泉街の散策。名物の温泉湯どうふを味わう",
+        "evening": "とろりとした美肌の湯に、時間を忘れて浸かる",
+        "morning": "嬉野茶を淹れて、茶畑を眺めるおだやかな朝"
+      },
+      "stay": {
+        "name": "美肌自慢の老舗湯宿",
+        "kind": "老舗湯宿",
+        "desc": "源泉かけ流しの客室露天で、肌もこころもつるり。",
+        "keyword": "嬉野温泉 旅館"
+      }
+    },
+    {
+      "id": "nagasaki",
+      "name": "長崎",
+      "kana": "ながさき",
+      "prefecture": "長崎",
+      "x": 87.7,
+      "y": 344.5,
+      "labelDir": "bottom",
+      "connections": [
+        "ureshino-onsen",
+        "huis-ten-bosch"
+      ],
+      "assetValue": 4500,
+      "propertyType": "名産品物件",
+      "tagline": "坂と路面電車と、宝石の夜景",
+      "memo": "坂と路面電車の街の玄関口。新しくなった駅舎を出れば、チンチン電車がゆっくり行き交い、異国情緒の残る坂道が山肌に重なる。日が暮れたら稲佐山へ。港を抱くように灯る夜景は、ちゃんぽんの湯気と並ぶこの街いちばんのごちそうだ。",
+      "products": [
+        {
+          "name": "長崎カステラ",
+          "desc": "底のざらめがじゃりっと香る、職人仕込みの一本。",
+          "keyword": "長崎 カステラ"
+        },
+        {
+          "name": "長崎ちゃんぽん",
+          "desc": "野菜たっぷり、太麺と白湯スープの郷土の味。",
+          "keyword": "長崎ちゃんぽん お取り寄せ"
+        }
+      ],
+      "gateway": "長崎空港・長崎駅",
+      "plan": {
+        "minutes": 150,
+        "day": "路面電車で出島・グラバー園・中華街をめぐり、ちゃんぽんを",
+        "evening": "稲佐山の夜景と、港のそぞろ歩き",
+        "morning": "眼鏡橋から中島川沿いを朝さんぽ"
+      },
+      "stay": {
+        "name": "夜景が見える高台ホテル",
+        "kind": "高台ホテル",
+        "desc": "客室から港の灯りを一望。夜更かし必至。",
+        "keyword": "長崎 夜景 ホテル"
+      }
+    },
+    {
+      "id": "huis-ten-bosch",
+      "name": "ハウステンボス",
+      "kana": "はうすてんぼす",
+      "prefecture": "長崎",
+      "x": 72.5,
+      "y": 260,
+      "labelDir": "bottom",
+      "connections": [
+        "karatsu",
+        "ureshino-onsen",
+        "nagasaki"
+      ],
+      "assetValue": 4800,
+      "propertyType": "名産品物件",
+      "tagline": "運河と風車の、海辺のヨーロッパ",
+      "memo": "大村湾に面した小さな駅のすぐ先に、運河と風車、ヨーロッパの街並みが広がる。特急が到着するたび、ホームには花の香りを運ぶ海風が吹き抜ける。夜はイルミネーションが運河を照らし、チーズとワインを片手に歩く石畳が旅を特別にする。",
+      "products": [
+        {
+          "name": "長崎のチーズ",
+          "desc": "牧場仕込みのフレッシュチーズとスモークチーズ。",
+          "keyword": "長崎 チーズ"
+        },
+        {
+          "name": "長崎ワイン",
+          "desc": "県産ぶどうで醸す、軽やかな白とロゼ。",
+          "keyword": "長崎 ワイン"
+        }
+      ],
+      "plan": {
+        "minutes": 180,
+        "day": "運河と花の街を散策し、チーズとワインでひと休み",
+        "evening": "運河を照らすイルミネーションの中を散歩",
+        "morning": "人の少ない朝の運河沿いをのんびり歩く"
+      },
+      "stay": {
+        "name": "園内オフィシャルホテル",
+        "kind": "オフィシャルホテル",
+        "desc": "閉園後の静かな運河を散歩できる宿泊者の特権。",
+        "keyword": "ハウステンボス ホテル"
+      }
+    },
+    {
+      "id": "aso",
+      "name": "阿蘇",
+      "kana": "あそ",
+      "prefecture": "熊本",
+      "x": 341.9,
+      "y": 298.4,
+      "labelDir": "left",
+      "connections": [
+        "hakata",
+        "kurokawa-onsen",
+        "beppu",
+        "takachiho"
+      ],
+      "assetValue": 4200,
+      "propertyType": "名産品物件",
+      "tagline": "カルデラの真ん中で、草原の風を浴びる",
+      "memo": "世界有数のカルデラの中に佇む駅。ホームに立つと外輪山がぐるりと地平線を描き、牛がのんびり草をはむ草千里の風景へと続いていく。噴煙を上げる中岳を遠くに望みながら、あか牛の丼をほおばる昼下がりは、ここでしか味わえない贅沢だ。",
+      "products": [
+        {
+          "name": "阿蘇あか牛",
+          "desc": "赤身のうまみが濃い、草原育ちの褐毛和種。",
+          "keyword": "阿蘇 あか牛"
+        },
+        {
+          "name": "ジャージー牛乳",
+          "desc": "高原の牧場から。濃厚なのに後味すっきり。",
+          "keyword": "阿蘇 ジャージー牛乳"
+        }
+      ],
+      "plan": {
+        "minutes": 150,
+        "day": "草千里と中岳周辺の展望を楽しみ、ランチはあか牛丼",
+        "evening": "高原の宿で、満天の星を眺める",
+        "morning": "条件がそろえば外輪山の雲海に出会える早朝の展望所へ"
+      },
+      "stay": {
+        "name": "外輪山を望む絶景高原リゾート",
+        "kind": "高原リゾート",
+        "desc": "朝は雲海、夜は満天の星。カルデラを独り占め。",
+        "keyword": "阿蘇 リゾート ホテル"
+      }
+    },
+    {
+      "id": "kurokawa-onsen",
+      "name": "黒川温泉",
+      "kana": "くろかわおんせん",
+      "prefecture": "熊本",
+      "x": 354.6,
+      "y": 264,
+      "labelDir": "left",
+      "note": "ゲーム上の駅（実際の最寄りはバス停）",
+      "connections": [
+        "aso",
+        "yufuin"
+      ],
+      "assetValue": 5500,
+      "propertyType": "湯けむり物件",
+      "tagline": "入湯手形で、露天風呂はしご",
+      "memo": "山あいの谷に、湯けむりと素朴な木造の宿が寄り添う温泉郷。入湯手形を首から下げて宿から宿へ露天風呂をはしごすれば、川のせせらぎと木々のざわめきが一日の疲れをほどいていく。派手な看板のない街並みは、まるで昔話の里に迷い込んだかのよう。",
+      "products": [
+        {
+          "name": "馬刺し",
+          "desc": "熊本の郷土の味。甘い九州醤油とおろし生姜で。",
+          "keyword": "熊本 馬刺し"
+        },
+        {
+          "name": "温泉コスメ",
+          "desc": "温泉水を使ったミストや石けんで、湯上がり肌を自宅でも。",
+          "keyword": "黒川温泉 コスメ"
+        }
+      ],
+      "plan": {
+        "minutes": 150,
+        "day": "入湯手形で、宿の露天風呂を2〜3軒はしご",
+        "evening": "離れの露天風呂で、谷の音だけを聴く夜",
+        "morning": "朝の温泉街をそぞろ歩き、もうひと湯"
+      },
+      "stay": {
+        "name": "離れのある秘境宿",
+        "kind": "秘境の離れ宿",
+        "desc": "客室ごとの露天風呂で、谷の音だけを聴く夜。",
+        "keyword": "黒川温泉 離れ 旅館"
+      }
+    },
+    {
+      "id": "beppu",
+      "name": "別府",
+      "kana": "べっぷ",
+      "prefecture": "大分",
+      "x": 430.1,
+      "y": 213.3,
+      "labelDir": "right",
+      "connections": [
+        "mojiko",
+        "yufuin",
+        "aso",
+        "miyazaki"
+      ],
+      "assetValue": 5200,
+      "propertyType": "湯けむり物件",
+      "tagline": "街じゅうが湯けむり、源泉の都",
+      "memo": "改札を出た瞬間から、街のあちこちで白い湯けむりが立ちのぼる。源泉数・湧出量ともに日本一を誇る温泉都市で、駅前の手湯で旅の第一歩を温めるのが流儀。地獄の蒸気で仕上げたプリンは、ほろ苦いカラメルが湯の香りとよく合う。",
+      "products": [
+        {
+          "name": "地獄蒸しプリン",
+          "desc": "温泉の蒸気でじっくり蒸した、固めの昔ながらプリン。",
+          "keyword": "別府 地獄蒸しプリン"
+        },
+        {
+          "name": "カボス",
+          "desc": "大分特産の香酸かんきつ。焼き魚や焼酎にきゅっと。",
+          "keyword": "大分 カボス"
+        }
+      ],
+      "gateway": "大分空港・別府駅",
+      "plan": {
+        "minutes": 150,
+        "day": "地獄めぐりと地獄蒸し料理、湯けむりの展望スポット",
+        "evening": "展望露天から、湯けむりの立つ夜景を",
+        "morning": "駅前の手湯や朝湯で、旅の疲れをほぐす"
+      },
+      "stay": {
+        "name": "展望露天の老舗旅館",
+        "kind": "老舗旅館",
+        "desc": "別府湾を見下ろす露天風呂で、湯けむりの夜景を。",
+        "keyword": "別府温泉 旅館 露天風呂"
+      }
+    },
+    {
+      "id": "yufuin",
+      "name": "由布院",
+      "kana": "ゆふいん",
+      "prefecture": "大分",
+      "x": 399.6,
+      "y": 217.5,
+      "labelDir": "bottom",
+      "connections": [
+        "hakata",
+        "beppu",
+        "kurokawa-onsen"
+      ],
+      "assetValue": 6000,
+      "propertyType": "湯けむり物件",
+      "tagline": "由布岳のふもと、朝霧の湯の町",
+      "memo": "黒い柱と吹き抜けが印象的な駅舎は、美術館のような静けさをまとう。正面には由布岳がどっしり構え、朝は金鱗湖から立ちのぼる霧が町を幻想的に包み込む。湯の坪街道をそぞろ歩けば、ロールケーキの甘い香りが旅人を次々と呼び止める。",
+      "products": [
+        {
+          "name": "由布院ロールケーキ",
+          "desc": "ふわふわ生地にたっぷりクリーム。湯の町の手みやげ。",
+          "keyword": "由布院 ロールケーキ"
+        },
+        {
+          "name": "大分の干し椎茸",
+          "desc": "肉厚でうまみが濃い、生産量日本一の産地から。",
+          "keyword": "大分 干し椎茸"
+        }
+      ],
+      "plan": {
+        "minutes": 150,
+        "day": "湯の坪街道の食べ歩きと、金鱗湖のほとりを散策",
+        "evening": "由布岳を望む離れ宿で、静かな夜",
+        "morning": "朝霧の金鱗湖を見に、少し早起き"
+      },
+      "stay": {
+        "name": "由布岳を望む高級離れ宿",
+        "kind": "高級離れ宿",
+        "desc": "全室離れ・源泉露天。霧の朝を部屋で迎える。",
+        "keyword": "由布院 離れ 高級旅館"
+      }
+    },
+    {
+      "id": "miyazaki",
+      "name": "宮崎",
+      "kana": "みやざき",
+      "prefecture": "宮崎",
+      "x": 415.8,
+      "y": 552.7,
+      "labelDir": "right",
+      "connections": [
+        "beppu",
+        "takachiho",
+        "kagoshima-chuo"
+      ],
+      "assetValue": 3800,
+      "propertyType": "名産品物件",
+      "tagline": "ヤシ並木と、太陽のマンゴー",
+      "memo": "ヤシの並木が出迎える南国の玄関口。改札を出ると空がひときわ高く、潮の香りを含んだ風がシャツの裾を揺らす。少し足を延ばせば青島の“鬼の洗濯板”と日南海岸の青。夜は炭火で焼き上げた地頭鶏の香ばしい煙が、繁華街の路地を満たしていく。",
+      "products": [
+        {
+          "name": "宮崎完熟マンゴー",
+          "desc": "樹上で熟して自然に落ちるまで待つ、太陽の果実。",
+          "keyword": "宮崎 完熟マンゴー"
+        },
+        {
+          "name": "みやざき地頭鶏",
+          "desc": "歯ごたえとうまみ。炭火焼きのお取り寄せが人気。",
+          "keyword": "地頭鶏 炭火焼"
+        }
+      ],
+      "gateway": "宮崎空港・宮崎駅",
+      "plan": {
+        "minutes": 150,
+        "day": "青島と日南海岸の青い海へ。ランチは地頭鶏の炭火焼",
+        "evening": "繁華街で地頭鶏の炭火焼とチキン南蛮",
+        "morning": "日向灘から昇る朝日を眺める"
+      },
+      "stay": {
+        "name": "日向灘の南国リゾートホテル",
+        "kind": "南国リゾートホテル",
+        "desc": "朝日が海から昇るオーシャンビューの客室へ。",
+        "keyword": "宮崎 リゾートホテル"
+      }
+    },
+    {
+      "id": "takachiho",
+      "name": "高千穂",
+      "kana": "たかちほ",
+      "prefecture": "宮崎",
+      "x": 389.7,
+      "y": 354.6,
+      "labelDir": "right",
+      "note": "旧高千穂鉄道の駅（現在は観光カートが発着）",
+      "connections": [
+        "aso",
+        "miyazaki"
+      ],
+      "assetValue": 4000,
+      "propertyType": "名産品物件",
+      "tagline": "神話の峡谷と、夜神楽の里",
+      "memo": "かつての鉄道の終着駅。いまは静かな駅舎から観光カートが鉄橋へと走り出す。真名井の滝は柱状節理の断崖から流れ落ち、ボートで近づけば水しぶきが頬に触れる。夜には神楽の笛と太鼓が、山あいの闇に千年の神話を響かせる。",
+      "products": [
+        {
+          "name": "高千穂牛",
+          "desc": "山あいで育つ宮崎牛の名産地。ステーキで味わいたい。",
+          "keyword": "高千穂牛"
+        },
+        {
+          "name": "釜炒り茶",
+          "desc": "鉄釜で炒る昔ながらの製法。香ばしく澄んだ味。",
+          "keyword": "高千穂 釜炒り茶"
+        }
+      ],
+      "plan": {
+        "minutes": 150,
+        "day": "高千穂峡のボートと真名井の滝、観光カートで鉄橋へ",
+        "evening": "高千穂神社の夜神楽を鑑賞する",
+        "morning": "神話の里を朝さんぽし、天岩戸神社へ"
+      },
+      "stay": {
+        "name": "峡谷の静かな和風旅館",
+        "kind": "和風旅館",
+        "desc": "夜神楽の帰り道、星空の下で湯に浸かる。",
+        "keyword": "高千穂 旅館"
+      }
+    },
+    {
+      "id": "kagoshima-chuo",
+      "name": "鹿児島中央",
+      "kana": "かごしまちゅうおう",
+      "prefecture": "鹿児島",
+      "x": 229,
+      "y": 635.3,
+      "labelDir": "left",
+      "connections": [
+        "hakata",
+        "miyazaki",
+        "ibusuki",
+        "yakushima"
+      ],
+      "assetValue": 4600,
+      "propertyType": "名産品物件",
+      "tagline": "桜島を望む、新幹線の南の終点",
+      "memo": "九州新幹線の南の終着駅。駅ビルの屋上観覧車に乗れば、錦江湾の向こうに桜島が雄大な姿を見せる。ときおり街に降る灰さえも、ここでは日常の風景だ。天文館まで足を延ばせば、黒豚しゃぶと芋焼酎のお湯割りが一日をやさしく締めくくる。",
+      "products": [
+        {
+          "name": "かごしま黒豚",
+          "desc": "甘くてさっぱりした脂。しゃぶしゃぶ用が定番。",
+          "keyword": "鹿児島 黒豚 しゃぶしゃぶ"
+        },
+        {
+          "name": "芋焼酎",
+          "desc": "お湯割りで香り立つ、薩摩の蔵元の一本。",
+          "keyword": "鹿児島 芋焼酎"
+        }
+      ],
+      "gateway": "鹿児島空港・鹿児島中央駅",
+      "plan": {
+        "minutes": 120,
+        "day": "天文館の街歩きと黒豚料理、フェリーで桜島へ",
+        "evening": "天文館で、黒豚しゃぶと芋焼酎のお湯割り",
+        "morning": "観覧車や城山展望台から、朝の桜島を眺める"
+      },
+      "stay": {
+        "name": "桜島ビューホテル",
+        "kind": "シティホテル",
+        "desc": "錦江湾越しの桜島を、朝焼けとともに眺める。",
+        "keyword": "鹿児島 桜島 眺望 ホテル"
+      }
+    },
+    {
+      "id": "ibusuki",
+      "name": "指宿",
+      "kana": "いぶすき",
+      "prefecture": "鹿児島",
+      "x": 250.1,
+      "y": 721.6,
+      "labelDir": "right",
+      "connections": [
+        "kagoshima-chuo",
+        "yakushima"
+      ],
+      "assetValue": 3900,
+      "propertyType": "湯けむり物件",
+      "tagline": "砂に埋もれる、南国のあったか湯",
+      "memo": "ヤシと花々が彩る南国の駅に、白と黒の観光特急がミストを吹いてゆっくりと到着する。海岸では波打ち際の砂に体を埋める砂むし温泉が名物。じんわり汗ばむ温もりと潮騒に包まれて、旅の時間までがゆっくりと溶けていく。",
+      "products": [
+        {
+          "name": "本枯節",
+          "desc": "カビ付けを重ねた最高級のかつお節。だしの格が変わる。",
+          "keyword": "本枯節 鹿児島"
+        },
+        {
+          "name": "さつま揚げ",
+          "desc": "魚のすり身を揚げた“つけあげ”。甘めの味わいが郷土流。",
+          "keyword": "さつま揚げ 鹿児島"
+        }
+      ],
+      "plan": {
+        "minutes": 120,
+        "day": "名物の砂むし温泉と、開聞岳を望む海辺の散策",
+        "evening": "温泉宿で海を眺めながら、湯上がりの一杯",
+        "morning": "朝の砂むしで、体の芯から温まる"
+      },
+      "stay": {
+        "name": "砂むし温泉直結の宿",
+        "kind": "温泉ホテル",
+        "desc": "浴衣のまま砂むし会館へ。湯上がりは海を眺めて。",
+        "keyword": "指宿 砂むし ホテル"
+      }
+    },
+    {
+      "id": "yakushima",
+      "name": "屋久島",
+      "kana": "やくしま",
+      "prefecture": "鹿児島",
+      "x": 78.7,
+      "y": 739.2,
+      "labelDir": "right",
+      "special": "ferry",
+      "note": "特別航路接続（高速船・フェリー／地図は縮尺外）",
+      "connections": [
+        "kagoshima-chuo",
+        "ibusuki"
+      ],
+      "assetValue": 7000,
+      "propertyType": "名産品物件",
+      "tagline": "特別航路の先、千年の森",
+      "memo": "鹿児島港から高速船で約2時間、特別航路の先に浮かぶ“洋上のアルプス”。宮之浦港に降り立つと、雨と苔と杉の匂いが混ざった深い空気が胸を満たす。白谷雲水峡の緑のトンネルを歩けば、樹齢千年を超える屋久杉たちが静かに旅人を見守っている。",
+      "products": [
+        {
+          "name": "トビウオ加工品",
+          "desc": "水揚げ量日本有数の島から、干物やつけ揚げで。",
+          "keyword": "屋久島 トビウオ"
+        },
+        {
+          "name": "たんかん",
+          "desc": "冬に熟す島のかんきつ。濃い甘みと香り。",
+          "keyword": "屋久島 たんかん"
+        }
+      ],
+      "plan": {
+        "minutes": 240,
+        "day": "白谷雲水峡で、苔むす森をトレッキング",
+        "evening": "森のコテージで、雨音と星空に包まれる",
+        "morning": "鳥の声を聞きながら、朝の森をゆっくり散策"
+      },
+      "stay": {
+        "name": "森のコテージ・ロッジ",
+        "kind": "コテージ・ロッジ",
+        "desc": "雨音と鳥の声で目覚める、森に抱かれた一棟貸し。",
+        "keyword": "屋久島 コテージ"
+      }
+    }
+  ]
+};
