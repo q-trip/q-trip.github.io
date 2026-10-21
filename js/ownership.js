@@ -1,8 +1,9 @@
 // 駅のオーナー権：累計購入金額ランキングで決める（トップオーナー制＋下克上ボーナス＋上位3名の共同株主）。
 // サーバーはないので、競う相手は stations.json の「ライバル旅人」（駅ごとの rivals）。自分の実績はレシートで立候補した記録（Store.purchases）。
-//   ・1位（totalAmount がいちばん高い）＝ その駅の正式なオーナー（地図の金の印・称号の総資産額に入る）
+//   ・1位（totalAmount がいちばん高い）＝ その駅の正式なオーナー（地図の金の王冠・称号の総資産額に入る）
 //   ・いまの1位でない人が立候補するときは、申告額に下克上ボーナス（meta.owner.upsetBonus＝1.3倍）を掛けて数える
-//   ・上位3名（meta.owner.shareholders）は共同株主。駅の評価額（万円）を、上位3名の中での金額の割合で配当として分け合う
+//   ・上位3名（meta.owner.shareholders）は共同株主。配当は駅の評価額（万円）× meta.owner.dividendRates
+//     （1位＝評価額そのまま、2位・3位の理事＝その3割・1割5分）
 // 配当はゲームの中だけのクラフト資金（お金の価値はない）。
 (function () {
   'use strict';
@@ -15,13 +16,15 @@
   const youName = () => Store.get().profile.name || 'あなた';
 
   // ownersHistory：その駅の購入実績ランキング（金額の大きい順。同じ額ならライバルが先＝追い越さないと上がらない）
-  function ranking(id) {
+  // baseRanking はライン制覇の倍率をかける前。ranking は、制覇したラインの駅の自分の配当を lineBonus 倍にする
+  function baseRanking(id) {
     const s = D.byId[id];
     const R = rivalById();
     const rows = (s.rivals || []).map((r) => ({
       userId: `rival:${r.id}`,
       userName: (R[r.id] || {}).name || r.id,
       icon: (R[r.id] || {}).icon || '🧳',
+      avatarConfig: (R[r.id] || {}).avatar || null,
       isYou: false,
       totalAmount: r.amount,
       lastUpdated: null,
@@ -33,6 +36,7 @@
         userId: 'you',
         userName: youName(),
         icon: '🎒',
+        avatarConfig: { ...Store.get().equipped },
         isYou: true,
         totalAmount: mine.reduce((n, p) => n + p.scored, 0),
         lastUpdated: mine[mine.length - 1].at,
@@ -42,15 +46,35 @@
     rows.sort((a, b) => b.totalAmount - a.totalAmount || (a.isYou ? 1 : 0) - (b.isYou ? 1 : 0));
     const top = rows.slice(0, cfg().shareholders);
     const pool = top.reduce((n, r) => n + r.totalAmount, 0) || 1;
+    const rates = cfg().dividendRates;
     rows.forEach((r, i) => {
       r.rank = i + 1;
-      r.share = i < cfg().shareholders ? r.totalAmount / pool : 0;
-      r.dividend = Math.round(s.assetValue * r.share); // 万円（ゲーム内のクラフト資金）
+      r.share = i < cfg().shareholders ? r.totalAmount / pool : 0; // 上位3名の中での購入額の割合（表示用）
+      r.dividend = i < cfg().shareholders ? Math.round(s.assetValue * (rates[i] || 0)) : 0; // 万円（ゲーム内のクラフト資金）
     });
     return rows;
   }
+  const baseRank = (id) => (baseRanking(id).find((r) => r.isYou) || {}).rank || null;
+
+  // ライン制覇：ラインの全駅で上位3名（共同株主以上）に入っている（meta.game.lines）
+  const lines = () => (D.meta.game && D.meta.game.lines) || [];
+  const clearedLines = () => lines().filter((l) => l.stations.every((id) => (baseRank(id) || 99) <= cfg().shareholders));
+  const lineOf = (id) => lines().find((l) => l.stations.includes(id)) || null;
+  function ranking(id) {
+    const rows = baseRanking(id);
+    const l = lineOf(id);
+    if (l && clearedLines().some((c) => c.id === l.id)) {
+      rows.forEach((r) => {
+        if (r.isYou && r.dividend) {
+          r.dividend *= (D.meta.game.lineBonus || 2);
+          r.lineBonus = l.name;
+        }
+      });
+    }
+    return rows;
+  }
   const you = (id) => ranking(id).find((r) => r.isYou) || null;
-  const yourRank = (id) => (you(id) || {}).rank || null;
+  const yourRank = (id) => baseRank(id);
   const owner = (id) => ranking(id)[0];
 
   // 立候補する前の見込み：この金額を足すと何位になるか
@@ -107,6 +131,8 @@
     sync,
     totalDividends,
     shareholderOf,
+    clearedLines,
+    lineOf,
     youName,
   };
 })();

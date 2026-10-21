@@ -17,7 +17,7 @@
 
   // 県名ラベル：線路や駅とぶつからない、それぞれの県の空いた場所（半島・内陸）に置く [県名, 緯度, 経度]
   const PREF_LABELS = [
-    ['福岡県', 33.6, 130.82], ['佐賀県', 33.34, 130.16], ['長崎県', 32.87, 129.76], ['熊本県', 32.6, 130.82],
+    ['福岡県', 33.6, 130.82], ['佐賀県', 33.33, 130.05], ['長崎県', 32.87, 129.76], ['熊本県', 32.6, 130.82],
     ['大分県', 33.57, 131.6], ['宮崎県', 32.06, 131.17], ['鹿児島県', 31.43, 130.37],
   ];
   // 海の名前 [名前, 緯度, 経度, 小さい字か]
@@ -33,7 +33,7 @@
     ['桜島', 31.58, 130.66], ['市房山', 32.31, 131.1],
   ];
   // 経由駅の名前を出さないもの（すごろくの駅のすぐそばで、名前が重なる）
-  const WAYPOINT_QUIET = new Set(['早岐', '大分']);
+  const WAYPOINT_QUIET = new Set(['早岐', '大分', '隼人']);
 
   function el(name, attrs = {}, parent) {
     const e = document.createElementNS(NS, name);
@@ -262,11 +262,11 @@
       el('circle', { cy: 2, r: 11.5, class: 'station-shadow' }, token);
       el('circle', { r: 11, class: 'station-ring' }, token);
       el('circle', { r: 6.4, class: 'station-core' }, token);
-      // オーナー刻印済み：山吹の封蝋のような丸い刻印と「印」の字
+      // トップオーナーの駅：山吹の封蝋のような丸い台に、金の王冠
       const seal = el('g', { class: 'station-seal' }, g);
       el('circle', { r: 12.5, fill: 'url(#g-seal)', class: 'seal-disc' }, seal);
       el('circle', { r: 9, class: 'seal-ring' }, seal);
-      el('text', { y: 4.2, 'text-anchor': 'middle', class: 'seal-char' }, seal).textContent = '印';
+      el('path', { d: 'M-6.5,3.5 L-6.5,-3 L-3.2,0.2 L0,-5.5 L3.2,0.2 L6.5,-3 L6.5,3.5 Z', class: 'seal-crown' }, seal);
       // 共同株主（2〜3位）：駅のしるしの右上に小さな「株」の札
       const share = el('g', { class: 'station-share', transform: 'translate(10 -10)' }, g);
       el('circle', { r: 6.5, class: 'share-disc' }, share);
@@ -397,7 +397,7 @@
       svg.innerHTML = '';
       buildDefs();
       layers = {};
-      ['bg', 'routes', 'badges', 'labels', 'course', 'trail', 'nodes', 'train'].forEach((k) => (layers[k] = el('g', { class: `layer-${k}` }, svg)));
+      ['bg', 'routes', 'badges', 'labels', 'course', 'trail', 'nodes', 'region', 'train'].forEach((k) => (layers[k] = el('g', { class: `layer-${k}` }, svg)));
       buildBoard();
       buildRoutes();
       buildNodes();
@@ -440,6 +440,29 @@
       if (D.byId[id]) park(id);
     },
 
+    // 盤面の座標 → 盤面の枠（.map-board）の左上からの画面の位置（px）。行き先ボタンや望遠鏡の吹き出しを重ねるのに使う
+    toBoard(x, y) {
+      const m = svg.getScreenCTM();
+      const box = svg.parentElement.getBoundingClientRect();
+      if (!m) return { left: 0, top: 0 };
+      return { left: m.a * x + m.c * y + m.e - box.left, top: m.b * x + m.d * y + m.f - box.top };
+    },
+    stationXY: (id) => [D.byId[id].x, D.byId[id].y],
+    // a から b へ向かう線路の上、a から dist だけ進んだ点（分かれ道の行き先ボタンを置く場所）
+    along(a, b, dist) {
+      const p = el('path', { d: segmentD(a, b) }, layers.trail);
+      const len = p.getTotalLength();
+      const pt = p.getPointAtLength(Math.min(dist, len * 0.6));
+      p.remove();
+      return [pt.x, pt.y];
+    },
+    // 今いる駅の位置（列車の位置）。演出を重ねるのに使う
+    trainXY() {
+      if (!pose.segs) return null;
+      const p = pointAt(pose.segs, pose.d);
+      return [p.x, p.y];
+    },
+
     // 経路 [a, b, c, ...] の線路の上を走る。1駅ずつ経由しながら、出発と到着で加減速し、途中の駅の前では少しゆるめる。
     // opts.onJoint(速さ 0〜1)：レールの継ぎ目を通ったとき、opts.onPass(駅ID)：途中の駅を通りすぎたとき
     moveTrain(path, opts = {}) {
@@ -477,6 +500,8 @@
             fxAcc = 0;
             const [x, y] = chimneyAt(p1);
             YT.Craft.spawnTrail(fx, x, y, undefined, 0.75, dir);
+            // 走っている区間の地域の演出（湯けむり・噴煙・カモメ…）を、列車のまわりに少しずつ
+            if (opts.onFx) opts.onFx(p1.x, p1.y, segs.find((sg) => d <= sg.start + sg.len) || segs[segs.length - 1]);
           }
           if (d < end) return requestAnimationFrame(step);
           pose.running = false;
@@ -505,6 +530,54 @@
         el('circle', { r: 9 }, g);
         el('text', { y: 3.8, 'text-anchor': 'middle' }, g).textContent = id === overnight ? '泊' : String(i + 1);
       });
+    },
+
+    // 地域の演出を置く層（js/scenery.js が使う）
+    regionLayer: () => layers.region,
+
+    // スポットライト駅：金のビーコン（ゆっくり広がる輪）と「🎯 ゴール」の旗
+    setSpotlight(id) {
+      D.stations.forEach((s) => nodes[s.id].classList.toggle('is-spotlight', s.id === id));
+      svg.querySelectorAll('.spot-flag').forEach((f) => f.remove());
+      if (!id || !nodes[id]) return;
+      const g = el('g', { class: 'spot-flag', 'aria-hidden': 'true' }, nodes[id]);
+      [0, 1, 2].forEach((i) => el('circle', { r: 14, class: 'spot-beacon', style: `--i:${i}` }, g));
+      // 盤面の上のふちに近い駅（門司港など）は、旗が切れないよう駅の下に立てる
+      const pos = el('g', { transform: D.byId[id].y < 70 ? 'translate(-30 50)' : 'translate(8 -16)' }, g);
+      const f = el('g', { class: 'spot-pennant' }, pos); // はためく動きは内側だけ（位置の transform を上書きしないように）
+      el('line', { x1: 0, y1: 0, x2: 0, y2: -30, class: 'spot-pole' }, f);
+      el('path', { d: 'M0,-30 L34,-24 L0,-17 Z', class: 'spot-cloth' }, f);
+      el('text', { x: 4, y: -21.5, class: 'spot-text' }, f).textContent = '🎯 ゴール';
+      nodes[id].parentNode.appendChild(nodes[id]); // ほかの駅の名前の上に出す
+    },
+
+    // ライン制覇：そのラインの区間（両端がラインの駅）を金色に光らせる
+    setGoldLines(stationSets) {
+      svg.querySelectorAll('.route.is-gold').forEach((r) => r.classList.remove('is-gold'));
+      stationSets.forEach((set) => {
+        D.edges.forEach((e) => {
+          if (set.has(e.a) && set.has(e.b)) {
+            const r = svg.querySelector(`.route[data-edge="${e.key}"]`);
+            if (!r) return;
+            r.classList.add('is-gold');
+            if (!r.querySelector('.gold-glow')) r.insertBefore(el('path', { d: segmentD(e.a, e.b), class: 'gold-glow' }), r.querySelector('path')); // 線路の下に敷く
+          }
+        });
+      });
+    },
+
+    // 王座奪還：自分の金の王冠とアバターが、上から駅にドスン！と刺さる
+    dropCrown(id, avatarMarkup) {
+      const g = nodes[id];
+      if (!g) return;
+      const pin = el('g', { class: 'crown-drop', 'aria-hidden': 'true' }, g);
+      pin.innerHTML = `<g class="crown-drop-body"><circle r="17" cy="-30" class="crown-drop-disc"/>
+          <foreignObject x="-15" y="-45" width="30" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="crown-drop-av">${avatarMarkup}</div></foreignObject>
+          <path d="M-11,-48 L-11,-56 L-5.5,-51 L0,-60 L5.5,-51 L11,-56 L11,-48 Z" class="crown-drop-crown"/></g>
+        <ellipse rx="22" ry="6" class="crown-drop-dust"/>`;
+      g.parentNode.appendChild(g);
+      setTimeout(() => pin.classList.add('is-landed'), 700);
+      setTimeout(() => pin.remove(), 5200);
     },
 
     // オーナー刻印の瞬間：駅のしるしに、印を押したときの輪が広がる
