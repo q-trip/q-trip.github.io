@@ -25,7 +25,7 @@ window.YOKATABI_FALLBACK_DATA = {
         "id": "traveler",
         "title": "九州旅人",
         "min": 0,
-        "icon": "🎒",
+        "icon": "bag",
         "metal": "bronze",
         "flavor": "サイコロ片手に、九州の旅が始まった。"
       },
@@ -33,7 +33,7 @@ window.YOKATABI_FALLBACK_DATA = {
         "id": "pioneer",
         "title": "九州開拓使",
         "min": 10000,
-        "icon": "🧭",
+        "icon": "compass",
         "metal": "silver",
         "flavor": "まだ見ぬ駅へ。あなたの足跡が、九州の地図を塗り替えていく。"
       },
@@ -41,7 +41,7 @@ window.YOKATABI_FALLBACK_DATA = {
         "id": "daimyo",
         "title": "九州大名",
         "min": 30000,
-        "icon": "🏯",
+        "icon": "castle",
         "metal": "gold",
         "flavor": "城下に湯けむり、領地に名産。九州じゅうにあなたの名がとどろく。"
       },
@@ -49,7 +49,7 @@ window.YOKATABI_FALLBACK_DATA = {
         "id": "railking",
         "title": "九州鉄道王",
         "min": 55000,
-        "icon": "🚂",
+        "icon": "locomotive",
         "metal": "platinum",
         "flavor": "九州のレールは、すべてあなたの王国へ通じている。"
       }
@@ -108,7 +108,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "yukemuri",
         "name": "湯けむり探訪人",
-        "icon": "♨",
+        "icon": "onsen",
         "avatar": {
           "hat": "tenugui",
           "outfit": "yukata",
@@ -119,7 +119,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "ekiben",
         "name": "駅弁ハンター",
-        "icon": "🍱",
+        "icon": "bento",
         "avatar": {
           "hat": "conductor",
           "outfit": "canvas",
@@ -130,7 +130,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "sketch",
         "name": "車窓スケッチ部",
-        "icon": "✏",
+        "icon": "pencil",
         "avatar": {
           "hat": "straw",
           "outfit": "blazer",
@@ -141,7 +141,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "minato",
         "name": "港町の食いしん坊",
-        "icon": "🐟",
+        "icon": "fish",
         "avatar": {
           "hat": "straw",
           "outfit": "canvas",
@@ -152,7 +152,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "touge",
         "name": "峠の写真家",
-        "icon": "📷",
+        "icon": "camera",
         "avatar": {
           "hat": "conductor",
           "outfit": "canvas",
@@ -163,7 +163,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "asaichi",
         "name": "朝市の常連さん",
-        "icon": "🧺",
+        "icon": "basket",
         "avatar": {
           "hat": "tenugui",
           "outfit": "yukata",
@@ -174,7 +174,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "hitou",
         "name": "秘湯めぐり隊",
-        "icon": "🏔",
+        "icon": "mountain",
         "avatar": {
           "hat": "straw",
           "outfit": "yukata",
@@ -185,7 +185,7 @@ window.YOKATABI_FALLBACK_DATA = {
       {
         "id": "yakou",
         "name": "夜汽車の旅人",
-        "icon": "🌙",
+        "icon": "moon",
         "avatar": {
           "hat": "kinghat",
           "outfit": "tuxedo",
@@ -206,7 +206,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "id": "express2",
           "name": "二連ダイス急行切符",
-          "icon": "🚃",
+          "icon": "dice2",
           "dice": 2,
           "price": 800,
           "weight": 6,
@@ -215,7 +215,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "id": "super3",
           "name": "三連ダイス超特急切符",
-          "icon": "🚄",
+          "icon": "dice3",
           "dice": 3,
           "price": 1800,
           "weight": 3,
@@ -224,7 +224,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "id": "cruise4",
           "name": "四連ダイス・クルーズ周遊切符",
-          "icon": "✨",
+          "icon": "sparkle",
           "dice": 4,
           "turns": 3,
           "price": 5000,
@@ -235,7 +235,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "id": "pinpoint",
           "name": "ピタリ指定切符",
-          "icon": "🎯",
+          "icon": "target",
           "pick": true,
           "price": 3000,
           "weight": 1,
@@ -336,7 +336,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "livery",
           "label": "車体フォルム＆塗装",
-          "icon": "🚃",
+          "icon": "locomotive",
           "items": [
             {
               "id": "hidamari",
@@ -353,7 +353,7 @@ window.YOKATABI_FALLBACK_DATA = {
             },
             {
               "id": "gullwing",
-              "name": "ホワイト・ガルウィング号",
+              "name": "白磁ストリームライン号",
               "price": 3000,
               "ticket": true,
               "desc": "白磁のように白いボディに茜色のライン。海沿いを駆ける流線形の特急。"
@@ -374,7 +374,7 @@ window.YOKATABI_FALLBACK_DATA = {
             },
             {
               "id": "royal",
-              "name": "ロイヤル・セブンズ号",
+              "name": "ロイヤル・マルーン号",
               "price": 15000,
               "ticket": true,
               "desc": "深いロイヤルマルーンに金の紋章。九州をめぐる最高峰のクルーズトレイン。"
@@ -384,7 +384,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "carriage",
           "label": "2両目・連結車両",
-          "icon": "🔗",
+          "icon": "coupler",
           "items": [
             {
               "id": "none",
@@ -418,7 +418,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "trail",
           "label": "走行トレイル",
-          "icon": "☁",
+          "icon": "cloud",
           "items": [
             {
               "id": "puff",
@@ -451,7 +451,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "hat",
           "label": "帽子・頭",
-          "icon": "👒",
+          "icon": "hat",
           "items": [
             {
               "id": "straw",
@@ -482,7 +482,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "outfit",
           "label": "衣装",
-          "icon": "🧥",
+          "icon": "coat",
           "items": [
             {
               "id": "canvas",
@@ -513,7 +513,7 @@ window.YOKATABI_FALLBACK_DATA = {
         {
           "slot": "buddy",
           "label": "旅の相棒",
-          "icon": "🐾",
+          "icon": "paw",
           "items": [
             {
               "id": "none",
@@ -968,6 +968,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "博多",
       "kana": "はかた",
       "prefecture": "福岡",
+      "stationTier": "hub",
       "x": 341.7,
       "y": 113.2,
       "labelDir": "left",
@@ -1029,6 +1030,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "門司港",
       "kana": "もじこう",
       "prefecture": "福岡",
+      "stationTier": "hub",
       "x": 454.5,
       "y": 25.8,
       "labelDir": "right",
@@ -1085,6 +1087,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "太宰府",
       "kana": "だざいふ",
       "prefecture": "福岡",
+      "stationTier": "local",
       "x": 364.8,
       "y": 130.7,
       "labelDir": "right",
@@ -1141,6 +1144,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "佐賀",
       "kana": "さが",
       "prefecture": "佐賀",
+      "stationTier": "hub",
       "x": 316.1,
       "y": 193.4,
       "labelDir": "top",
@@ -1200,6 +1204,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "唐津",
       "kana": "からつ",
       "prefecture": "佐賀",
+      "stationTier": "tourist",
       "x": 247.4,
       "y": 148.7,
       "labelDir": "top",
@@ -1257,6 +1262,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "嬉野温泉",
       "kana": "うれしのおんせん",
       "prefecture": "佐賀",
+      "stationTier": "tourist",
       "x": 253.8,
       "y": 232.2,
       "labelDir": "right",
@@ -1313,6 +1319,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "有田",
       "kana": "ありた",
       "prefecture": "佐賀",
+      "stationTier": "local",
       "x": 229.4,
       "y": 213.2,
       "labelDir": "left",
@@ -1370,6 +1377,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "長崎",
       "kana": "ながさき",
       "prefecture": "長崎",
+      "stationTier": "hub",
       "x": 226.7,
       "y": 319.4,
       "labelDir": "bottom",
@@ -1428,6 +1436,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "ハウステンボス",
       "kana": "はうすてんぼす",
       "prefecture": "長崎",
+      "stationTier": "tourist",
       "x": 211.6,
       "y": 235.8,
       "labelDir": "bottom",
@@ -1484,6 +1493,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "島原",
       "kana": "しまばら",
       "prefecture": "長崎",
+      "stationTier": "local",
       "x": 331.3,
       "y": 310,
       "labelDir": "bottom",
@@ -1540,6 +1550,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "熊本",
       "kana": "くまもと",
       "prefecture": "熊本",
+      "stationTier": "hub",
       "x": 397.7,
       "y": 310.2,
       "labelDir": "top",
@@ -1601,6 +1612,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "阿蘇",
       "kana": "あそ",
       "prefecture": "熊本",
+      "stationTier": "tourist",
       "x": 479.2,
       "y": 273.9,
       "labelDir": "right",
@@ -1659,6 +1671,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "黒川温泉",
       "kana": "くろかわおんせん",
       "prefecture": "熊本",
+      "stationTier": "tourist",
       "x": 491.9,
       "y": 239.8,
       "labelDir": "left",
@@ -1716,6 +1729,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "人吉",
       "kana": "ひとよし",
       "prefecture": "熊本",
+      "stationTier": "local",
       "x": 411.2,
       "y": 451.4,
       "labelDir": "right",
@@ -1772,6 +1786,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "三角",
       "kana": "みすみ",
       "prefecture": "熊本",
+      "stationTier": "local",
       "x": 352,
       "y": 355,
       "labelDir": "left",
@@ -1828,6 +1843,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "別府",
       "kana": "べっぷ",
       "prefecture": "大分",
+      "stationTier": "tourist",
       "x": 566.9,
       "y": 189.6,
       "labelDir": "top",
@@ -1887,6 +1903,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "由布院",
       "kana": "ゆふいん",
       "prefecture": "大分",
+      "stationTier": "tourist",
       "x": 536.6,
       "y": 193.8,
       "labelDir": "bottom",
@@ -1944,6 +1961,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "日田",
       "kana": "ひた",
       "prefecture": "大分",
+      "stationTier": "local",
       "x": 449.8,
       "y": 180.4,
       "labelDir": "bottom",
@@ -2000,6 +2018,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "宮崎",
       "kana": "みやざき",
       "prefecture": "宮崎",
+      "stationTier": "hub",
       "x": 552.6,
       "y": 525.4,
       "labelDir": "right",
@@ -2059,6 +2078,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "高千穂",
       "kana": "たかちほ",
       "prefecture": "宮崎",
+      "stationTier": "tourist",
       "x": 526.7,
       "y": 329.4,
       "labelDir": "right",
@@ -2116,6 +2136,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "青島",
       "kana": "あおしま",
       "prefecture": "宮崎",
+      "stationTier": "local",
       "x": 560,
       "y": 553.9,
       "labelDir": "right",
@@ -2171,6 +2192,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "鹿児島中央",
       "kana": "かごしまちゅうおう",
       "prefecture": "鹿児島",
+      "stationTier": "hub",
       "x": 367,
       "y": 607.1,
       "labelDir": "left",
@@ -2231,6 +2253,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "霧島温泉",
       "kana": "きりしまおんせん",
       "prefecture": "鹿児島",
+      "stationTier": "local",
       "x": 407.2,
       "y": 537.1,
       "labelDir": "top",
@@ -2290,6 +2313,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "桜島",
       "kana": "さくらじま",
       "prefecture": "鹿児島",
+      "stationTier": "local",
       "x": 378.5,
       "y": 605.1,
       "labelDir": "right",
@@ -2347,6 +2371,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "指宿",
       "kana": "いぶすき",
       "prefecture": "鹿児島",
+      "stationTier": "tourist",
       "x": 388,
       "y": 692.4,
       "labelDir": "right",
@@ -2403,6 +2428,7 @@ window.YOKATABI_FALLBACK_DATA = {
       "name": "屋久島",
       "kana": "やくしま",
       "prefecture": "鹿児島",
+      "stationTier": "tourist",
       "x": 373.2,
       "y": 892.2,
       "labelDir": "right",
